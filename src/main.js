@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import App from './components/App'
 import Home from './components/Home'
+import My from './components/My'
 import MintUI from 'mint-ui'
 import 'mint-ui/lib/style.css'
 
@@ -17,6 +18,9 @@ const routes = [{
 }, {
   path: '/home',
   component: Home
+}, {
+  path: '/my',
+  component: My
 }]
 
 const router = new VueRouter({ routes })

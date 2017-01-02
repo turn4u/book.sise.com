@@ -1,19 +1,5 @@
 <template>
   <div class="dashboard">
-    <mt-tabbar fixed="true" v-model="clicked">
-      <mt-tab-item id="1">
-        首页
-      </mt-tab-item>
-      <mt-tab-item id="2">
-        图书
-      </mt-tab-item>
-      <mt-tab-item id="3">
-        收藏
-      </mt-tab-item>
-      <mt-tab-item id="4">
-        我的
-      </mt-tab-item>
-    </mt-tabbar>
     <mt-tab-container v-model="clicked">
 	  <mt-tab-container-item id="1">
 	    <mt-cell v-for="n in 10" title="tab-container 1"></mt-cell>
@@ -33,25 +19,37 @@
 		    <span>消志捞</span>
 		    <span>wowowowowowoowowowowowoow</span>
 		  </div>
+      <div class="info-point">
+        <div class="point-item">
+        1
+        </div>
+        <div class="point-item">
+        1
+        </div>
+        <div class="point-item">
+        1
+        </div>
+      </div>
 	    </div>
 	    <div class="button">
 	      <div class="main-button">
 		      <ul>
-		        <li v-for="n in 5" @click="popupEvent(n)">图书{{ n }}</li>
+		        <li v-for="button in mainButton" :url="button.url" :title="button.title" is="buttonLink"></li>
 		      </ul>
 	      </div>
 	      <div class="other-button">
 		      <ul>
-		        <li v-for="button in otherButton" :title="button.title" is="buttonLink"></li>
+            <li v-for="button in otherButton" :url="button.url" :title="button.title" is="buttonLink"></li>
 		      </ul>
 	      </div>
 	    </div>
 	  </mt-tab-container-item>
 	</mt-tab-container>
+  <tabbar></tabbar>
 	  <mt-popup
 	  v-model="visible"
 	  position="top">
-	  <div>
+	  <div>dasdsd
 	    1231234124214
 	  </div>
       </mt-popup>
@@ -60,6 +58,7 @@
 
 <script>
   import ButtonLink from './ButtonLink'
+  import Tabbar from './Tabbar'
 
   export default {
     data () {
@@ -69,10 +68,10 @@
           {title: '借阅书籍'},
           {title: '过期书籍'},
           {title: '我的预约'},
-          {title: '我要借书'}
+          {title: '我要借阅'}
         ],
         otherButton: [
-          {title: '积分排行'}
+          {title: '积分排行', url: 'point/rank'}
         ],
         visible: false,
         popup: [
@@ -89,7 +88,7 @@
         this.popup[index].visible = true
       }
     },
-    components: { 'buttonLink': ButtonLink }
+    components: { 'buttonLink': ButtonLink, 'tabbar': Tabbar }
   }
 </script>
 
@@ -125,6 +124,12 @@
     overflow: hidden; 
     white-space: nowrap; 
     text-overflow: ellipsis;
+  }
+  .info .info-point {
+
+  }
+  .info-point .point-item {
+    
   }
   .is-selected {
   	color: #2FD4C9 !important;
