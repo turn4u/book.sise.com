@@ -1,58 +1,6 @@
 <template>
   <div class="dashboard">
-    <mt-tab-container v-model="clicked">
-	  <mt-tab-container-item id="1">
-	    <mt-cell v-for="n in 10" title="tab-container 1"></mt-cell>
-	  </mt-tab-container-item>
-	  <mt-tab-container-item id="2">
-	    <mt-cell v-for="n in 5" title="tab-container 2"></mt-cell>
-	  </mt-tab-container-item>
-	  <mt-tab-container-item id="3">
-	    <mt-cell v-for="n in 7" title="tab-container 3"></mt-cell>
-	  </mt-tab-container-item>
-	  <mt-tab-container-item id="4">
-	    <div class="info">
-	      <div class="info-item">
-	        <img src="http://wx.qlogo.cn/mmopen/uKx75PzicibB7VXttaNyhc2iagamEwoHicNE8DByMTtygNfehu8LDNH7ZVUzqHXeep8GsLMibHoicqyHy4Mic9VibBmAibuyWgC2EibraO/0">
-	      </div>
-		  <div class="info-name">
-		    <span>消志捞</span>
-		    <span>wowowowowowoowowowowowoow</span>
-		  </div>
-      <div class="info-point">
-        <div class="point-item">
-        1
-        </div>
-        <div class="point-item">
-        1
-        </div>
-        <div class="point-item">
-        1
-        </div>
-      </div>
-	    </div>
-	    <div class="button">
-	      <div class="main-button">
-		      <ul>
-		        <li v-for="button in mainButton" :url="button.url" :title="button.title" is="buttonLink"></li>
-		      </ul>
-	      </div>
-	      <div class="other-button">
-		      <ul>
-            <li v-for="button in otherButton" :url="button.url" :title="button.title" is="buttonLink"></li>
-		      </ul>
-	      </div>
-	    </div>
-	  </mt-tab-container-item>
-	</mt-tab-container>
   <tabbar></tabbar>
-	  <mt-popup
-	  v-model="visible"
-	  position="top">
-	  <div>dasdsd
-	    1231234124214
-	  </div>
-      </mt-popup>
   </div>
 </template>
 

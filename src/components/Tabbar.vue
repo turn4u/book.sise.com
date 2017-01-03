@@ -1,19 +1,19 @@
 <template>
   <div class="tabbar">
       <router-link to="/home" :class="[$route.path === '/home' || $route.path === '/' ? activeClass : '']">
-        <i class="iconfont-tab">&#xe628;</i>
+        <i class="iconfont iconfont-tab">&#xe628;</i>
         <span class="tab-title">首页</span>
       </router-link>
       <router-link to="/category" :class="[$route.path === '/category' ? activeClass : '']">
-        <i class="iconfont-tab">&#xe60a;</i>
+        <i class="iconfont iconfont-tab">&#xe60a;</i>
         <span class="tab-title">检索</span>
       </router-link>
       <router-link to="/store" :class="[$route.path === '/store' ? activeClass : '']">
-        <i class="iconfont-tab">&#xe60c;</i>
+        <i class="iconfont iconfont-tab">&#xe60c;</i>
         <span class="tab-title">收藏</span>
       </router-link>
       <router-link to="/my" :class="[$route.path === '/my' ? activeClass : '']">
-        <i class="iconfont-tab">&#xe606;</i>
+        <i class="iconfont iconfont-tab">&#xe606;</i>
         <span class="tab-title">我的</span>
       </router-link>
     </ul>
@@ -64,6 +64,8 @@
     -webkit-font-smoothing: antialiased;
     -webkit-text-stroke-width: 0.2px;
     -moz-osx-font-smoothing: grayscale; 
+    padding-left: 0;
+    color: black;
     display: block;
   }
 </style>

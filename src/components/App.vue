@@ -6,7 +6,12 @@
 
 <script>
   export default {
-    name: 'app'
+    name: 'app',
+    watch: {
+      '$route' (to, from) {
+        console.log(to.path)
+      }
+    }
   }
 </script>
 
@@ -15,7 +20,11 @@
   	margin: 0;
   	padding: 0;
   	box-sizing: border-box;
-  	font-family: 'Microsoft Yahei'
+  	font-family: 'Microsoft Yahei' !important
+  }
+  body, html {
+    width: 100%;
+    height: 100%;
   }
   body {
   	background: #ECECEC;
@@ -26,19 +35,22 @@
   a {
     text-decoration: none;
   }
+  .red {
+    color: red !important;
+  }
   @font-face {
     font-family: 'iconfont';  /* project id 212597 */
-    src: url('//at.alicdn.com/t/font_a6q61i730r6647vi.eot');
-    src: url('//at.alicdn.com/t/font_a6q61i730r6647vi.eot?#iefix') format('embedded-opentype'),
-    url('//at.alicdn.com/t/font_a6q61i730r6647vi.woff') format('woff'),
-    url('//at.alicdn.com/t/font_a6q61i730r6647vi.ttf') format('truetype'),
-    url('//at.alicdn.com/t/font_a6q61i730r6647vi.svg#iconfont') format('svg');
+    src: url('//at.alicdn.com/t/font_u7qasrky1f00y66r.eot');
+    src: url('//at.alicdn.com/t/font_u7qasrky1f00y66r.eot?#iefix') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_u7qasrky1f00y66r.woff') format('woff'),
+    url('//at.alicdn.com/t/font_u7qasrky1f00y66r.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_u7qasrky1f00y66r.svg#iconfont') format('svg');
   }
   .iconfont{
-	font-family:"iconfont";
-	font-size:14px;
-	font-style:normal;
-	-webkit-font-smoothing: antialiased;
+	  font-family:"iconfont" !important;
+	  font-size:14px;
+	  font-style:normal;
+	  -webkit-font-smoothing: antialiased;
     -webkit-text-stroke-width: 0.2px;
     -moz-osx-font-smoothing: grayscale; 
     padding-left:20px;

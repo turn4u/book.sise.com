@@ -1,4 +1,5 @@
 <template>
+  <transition :name="isTransition">
   <div class="dashboard">
 	    <div class="info">
 	      <div class="info-avatar">
@@ -26,7 +27,7 @@
 				<div class="point-for">收藏</div>
 			</div>
 		</div>
-	    <div class="button">
+	    <div class="button-sise">
 	      <div class="main-button">
 		      <ul>
 		        <li v-for="button in mainButton" 
@@ -36,20 +37,15 @@
 		        is="buttonLink"></li>
 		      </ul>
 	      </div>
-	      <!-- 扫一扫 -->
-	      <mt-actionsheet
-		    :actions="actions"
-		    :visible.sync="actionsVisible">
-		  </mt-actionsheet>
-		  <!-- 扫一扫 -->
 	      <div class="other-button">
 		      <ul>
             <li v-for="button in otherButton" :iconfont="button.iconfont" :url="button.url" :title="button.title" is="buttonLink"></li>
 		      </ul>
 	      </div>
 	    </div>
-  <tabbar></tabbar>
+      <tabbar></tabbar>
   </div>
+  </transition>
 </template>
 
 <script>
@@ -59,16 +55,16 @@
   export default {
     data () {
       return {
-        clicked: '1',
+        isTransition: 'slide-my',
         actions: [
           {name: '扫条形码', method: 'xixixi'}
         ],
         actionsVisible: false,
         mainButton: [
-          {title: '借阅书籍', iconfont: '#icon-rent'},
-          {title: '过期书籍', iconfont: '#icon-out-date'},
-          {title: '我的预约', iconfont: '#icon-order'},
-          {title: '我要借阅', iconfont: '#icon-want'}
+          {title: '借阅书籍', url: '/rent', iconfont: '#icon-rent'},
+          {title: '过期书籍', url: '', iconfont: '#icon-out-date'},
+          {title: '我的预约', url: '', iconfont: '#icon-order'},
+          {title: '我要借阅', url: '', iconfont: '#icon-want'}
         ],
         otherButton: [
           {title: '积分排行', url: 'point/rank', iconfont: '#icon-rank'}
@@ -104,7 +100,6 @@
   	display: block;
   }
   .info .info-detail {
-  	padding-top: .5em;
   	font-size: 14px;
   	color: white;
   	text-align: center;
@@ -160,25 +155,59 @@
   .other-button{
   	margin-top: .8em;
   }
-  .button ul {
+  .button-sise ul {
   	background: white;
   	font-size: 14px;
   }
-  .button ul li {
+  .button-sise ul li {
   	color: #7D7D7D;
   	padding: .7em 0;
   	padding-left: 3em;
   	border-bottom: 1px solid #E0E0E0
   }
-  .button ul li:first-child,{
+  .button-sise ul li:first-child,{
   	border-top: 1px solid #E0E0E0
   }
   
+  /*icon*/
   .iconfont-edit {
   	position: relative;
   	top: -.35em;
   	left: -.1em;
   	padding-left: 0;
   	color: white;
+  }
+
+  .slide-my-leave-active {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    animation: myLeave .2s linear;
+  }
+  .slide-my-enter-active {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    animation: myEnter .2s linear;
+  }
+  @keyframes myEnter {
+    0% {
+      opacity: 50;
+      right: 100%;
+    } 
+    100% {
+      opacity: 100%;
+      right: 0;
+    }
+  }
+  @keyframes myLeave {
+    0% {
+      opacity: 50%;
+      right: 0;
+    } 
+    100% {
+      opacity: 0;
+      right: 100%;
+    }
   }
 </style>
