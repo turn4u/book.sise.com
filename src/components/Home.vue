@@ -1,7 +1,9 @@
 <template>
+  <transition :name="isTransition">
   <div class="dashboard">
   <tabbar></tabbar>
   </div>
+  </transition>
 </template>
 
 <script>
@@ -11,7 +13,7 @@
   export default {
     data () {
       return {
-        clicked: '1',
+        isTransition: 'slide-home',
         mainButton: [
           {title: '借阅书籍'},
           {title: '过期书籍'},

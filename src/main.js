@@ -5,10 +5,14 @@ import App from './components/App'
 import Home from './components/Home'
 import My from './components/My'
 import Rent from './components/Rent'
+import OutDate from './components/OutDate'
+import MintUI from 'mint-ui'
+import 'mint-ui/lib/style.css'
 
 import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
+Vue.use(MintUI)
 
 const routes = [{
   path: '/',
@@ -20,8 +24,11 @@ const routes = [{
   path: '/my',
   component: My
 }, {
-  path: '/rent',
+  path: '/my/rent',
   component: Rent
+}, {
+  path: '/my/outdate',
+  component: OutDate
 }]
 
 const router = new VueRouter({ routes })

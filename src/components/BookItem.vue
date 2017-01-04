@@ -3,7 +3,7 @@
     <div class="book-cover">
       <img :src="book.cover">
     </div>
-    <div class="book-info">
+    <div class="book-info" @click="test">
       <h1>{{ book.title }}</h1>
       <div v-if="book.outDate" class="book-detail red">逾期时间 : {{ book.time }}</div>
       <div v-else class="book-detail">还书时间 : {{ book.time }}</div>
@@ -13,7 +13,15 @@
 
 <script>
   export default {
-    props: ['book']
+    props: ['book'],
+    methods: {
+      test: function () {
+        this.$toast({
+          message: '123',
+          duration: 1500
+        })
+      }
+    }
   }
 </script>
 

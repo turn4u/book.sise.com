@@ -61,8 +61,8 @@
         ],
         actionsVisible: false,
         mainButton: [
-          {title: '借阅书籍', url: '/rent', iconfont: '#icon-rent'},
-          {title: '过期书籍', url: '', iconfont: '#icon-out-date'},
+          {title: '借阅书籍', url: '/my/rent', iconfont: '#icon-rent'},
+          {title: '过期书籍', url: '/my/outdate', iconfont: '#icon-out-date'},
           {title: '我的预约', url: '', iconfont: '#icon-order'},
           {title: '我要借阅', url: '', iconfont: '#icon-want'}
         ],
@@ -76,11 +76,25 @@
         ]
       }
     },
+    beforeRouteEnter (to, from, next) {
+      if (from.path === '/home') {
+        next(vm => {
+          vm.$el.className = 'dashboard'
+        })
+      }
+
+      next()
+    },
     components: { 'buttonLink': ButtonLink, 'tabbar': Tabbar }
   }
 </script>
 
 <style>
+  .dashboard {
+    width: 100%;
+    min-height: 100%;
+    background: #ECECEC;
+  }
   .info {
     height: 9em;
     background: #2FD4C9;
@@ -120,8 +134,8 @@
   }
   .info-detail div {
   	height: 1.8em;
-	width: 100%;
-	text-align: center;
+	  width: 100%;
+	  text-align: center;
   }
   .info-point {
   	height: 4.5em;
@@ -130,21 +144,21 @@
     border-bottom: 1px solid #E0E0E0;
   }
   .info-point .point-item {
-	display: inline-block;
-	width: 33.3%;
-	padding: 1em 0;
-	font-weight: bold
+	  display: inline-block;
+	  width: 33.3%;
+	  padding: 1em 0;
+	  font-weight: bold
   }
   .info-point .point-item:not(:first-child) {
   	margin-left: -5px;
   	border-left: 1px solid #E0E0E0;
   }
   .info-point .point-num {
-	color: #fd9a57;
+	  color: #fd9a57;
   }
   .info-point .point-for {
-	color: #999;
-	font-size: 14px;
+	  color: #999;
+	  font-size: 14px;
   }
   .is-selected {
   	color: #2FD4C9 !important;
@@ -177,11 +191,12 @@
   	padding-left: 0;
   	color: white;
   }
-
   .slide-my-leave-active {
     width: 100%;
     position: fixed;
     top: 0;
+    right: 0;
+    z-index: -999;
     animation: myLeave .2s linear;
   }
   .slide-my-enter-active {
@@ -192,22 +207,18 @@
   }
   @keyframes myEnter {
     0% {
-      opacity: 50;
       right: 100%;
     } 
     100% {
-      opacity: 100%;
       right: 0;
     }
   }
   @keyframes myLeave {
     0% {
-      opacity: 50%;
       right: 0;
     } 
     100% {
-      opacity: 0;
-      right: 100%;
+      right: 0;
     }
   }
 </style>

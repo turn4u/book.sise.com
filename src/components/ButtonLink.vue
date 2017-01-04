@@ -3,12 +3,15 @@
   <svg class="icon icon-dashboard" aria-hidden="true">
       <use :xlink:href="iconfont"></use>
   </svg>
-  <li>{{ title }}<i class="iconfont iconfont-forward">&#xe641;</i></li></router-link>
+  <li>{{ title }}<i class="iconfont iconfont-forward">&#xe641;</i><badge :text="10"></badge></li></router-link>
 </template>
 
 <script>
+  import Badge from './Badge'
+
   export default {
-    props: ['title', 'url', 'iconfont']
+    props: ['title', 'url', 'iconfont'],
+    components: {'badge': Badge}
   }
 </script>
 
@@ -22,8 +25,7 @@
   .iconfont-forward {
     color: #c5c5c5;
     float: right;
-    margin-right: .6em;
-    margin-top: .3em;
+    margin: .3em .6em 0 -.8em;
     font-size: 14px
   }
 </style>

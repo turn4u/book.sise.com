@@ -9,7 +9,7 @@
         <span class="tab-title">检索</span>
       </router-link>
       <router-link to="/store" :class="[$route.path === '/store' ? activeClass : '']">
-        <i class="iconfont iconfont-tab">&#xe60c;</i>
+        <i class="iconfont iconfont-tab">&#xe695;</i>
         <span class="tab-title">收藏</span>
       </router-link>
       <router-link to="/my" :class="[$route.path === '/my' ? activeClass : '']">

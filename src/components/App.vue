@@ -6,12 +6,7 @@
 
 <script>
   export default {
-    name: 'app',
-    watch: {
-      '$route' (to, from) {
-        console.log(to.path)
-      }
-    }
+    name: 'app'
   }
 </script>
 
@@ -22,7 +17,7 @@
   	box-sizing: border-box;
   	font-family: 'Microsoft Yahei' !important
   }
-  body, html {
+  body, html, #app {
     width: 100%;
     height: 100%;
   }
@@ -40,11 +35,11 @@
   }
   @font-face {
     font-family: 'iconfont';  /* project id 212597 */
-    src: url('//at.alicdn.com/t/font_u7qasrky1f00y66r.eot');
-    src: url('//at.alicdn.com/t/font_u7qasrky1f00y66r.eot?#iefix') format('embedded-opentype'),
-    url('//at.alicdn.com/t/font_u7qasrky1f00y66r.woff') format('woff'),
-    url('//at.alicdn.com/t/font_u7qasrky1f00y66r.ttf') format('truetype'),
-    url('//at.alicdn.com/t/font_u7qasrky1f00y66r.svg#iconfont') format('svg');
+    src: url('//at.alicdn.com/t/font_ck3xv9sipacyp66r.eot');
+    src: url('//at.alicdn.com/t/font_ck3xv9sipacyp66r.eot?#iefix') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_ck3xv9sipacyp66r.woff') format('woff'),
+    url('//at.alicdn.com/t/font_ck3xv9sipacyp66r.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_ck3xv9sipacyp66r.svg#iconfont') format('svg');
   }
   .iconfont{
 	  font-family:"iconfont" !important;
