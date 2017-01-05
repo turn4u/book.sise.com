@@ -10,7 +10,8 @@
 
 <style>
   .tue-badge {
-    padding: .1em .6em;
+    margin-top: .2em;
+    padding: 0 .4em;
     border-radius: 6em;
     color: white;
     font-size: 12px;

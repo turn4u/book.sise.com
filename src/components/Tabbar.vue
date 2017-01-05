@@ -48,13 +48,14 @@
     display: inline-block;
   }
   .tabbar a.tabbar-active {
-    color: #89e0da;
+    color: #59CAC2;
   }
   .tabbar a:not(:first-child) {
     margin-left: -5px;
   }
   .tabbar .tab-title {
     display: block;
+    font-size: 12px;
     margin-top: -.2em;
   }
   .iconfont-tab {
@@ -65,7 +66,7 @@
     -webkit-text-stroke-width: 0.2px;
     -moz-osx-font-smoothing: grayscale; 
     padding-left: 0;
-    color: black;
+    color: #6B6B6B;
     display: block;
   }
 </style>

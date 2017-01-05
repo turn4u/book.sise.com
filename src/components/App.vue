@@ -28,6 +28,7 @@
   	list-style: none;
   }
   a {
+    color: black;
     text-decoration: none;
   }
   .red {
@@ -35,11 +36,11 @@
   }
   @font-face {
     font-family: 'iconfont';  /* project id 212597 */
-    src: url('//at.alicdn.com/t/font_ck3xv9sipacyp66r.eot');
-    src: url('//at.alicdn.com/t/font_ck3xv9sipacyp66r.eot?#iefix') format('embedded-opentype'),
-    url('//at.alicdn.com/t/font_ck3xv9sipacyp66r.woff') format('woff'),
-    url('//at.alicdn.com/t/font_ck3xv9sipacyp66r.ttf') format('truetype'),
-    url('//at.alicdn.com/t/font_ck3xv9sipacyp66r.svg#iconfont') format('svg');
+    src: url('//at.alicdn.com/t/font_8sr9f1y4oiebfbt9.eot');
+    src: url('//at.alicdn.com/t/font_8sr9f1y4oiebfbt9.eot?#iefix') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_8sr9f1y4oiebfbt9.woff') format('woff'),
+    url('//at.alicdn.com/t/font_8sr9f1y4oiebfbt9.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_8sr9f1y4oiebfbt9.svg#iconfont') format('svg');
   }
   .iconfont{
 	  font-family:"iconfont" !important;

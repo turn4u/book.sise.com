@@ -1,19 +1,19 @@
 <template>
   <transition :name="isTransition">
   <div class="dashboard">
-	    <div class="info">
+	  <div class="info">
 	      <div class="info-avatar">
 	        <img src="http://wx.qlogo.cn/mmopen/uKx75PzicibB7VXttaNyhc2iagamEwoHicNE8DByMTtygNfehu8LDNH7ZVUzqHXeep8GsLMibHoicqyHy4Mic9VibBmAibuyWgC2EibraO/0">
 	      </div>
 		  <div class="info-detail">
 		    <span class="info-name">消志捞</span>
-		    <div>
+		    <router-link :to="{path: '/my/account'}">
 		    	<span class="info-intro">wowowowowowoowowowowowoow</span>
 		    	<i class="iconfont iconfont-edit">&#xe609;</i>
-		    </div>
+		    </router-link>
 		  </div>
-	    </div>
-	    <div class="info-point">
+	  </div>
+	  <div class="info-point">
 			<div class="point-item">
 				<div class="point-num">2</div>
 				<div class="point-for">评论</div>
@@ -26,8 +26,8 @@
 				<div class="point-num">2</div>
 				<div class="point-for">收藏</div>
 			</div>
-		</div>
-	    <div class="button-sise">
+	  </div>
+	  <div class="button-sise">
 	      <div class="main-button">
 		      <ul>
 		        <li v-for="button in mainButton" 
@@ -42,8 +42,8 @@
             <li v-for="button in otherButton" :iconfont="button.iconfont" :url="button.url" :title="button.title" is="buttonLink"></li>
 		      </ul>
 	      </div>
-	    </div>
-      <tabbar></tabbar>
+	  </div>
+    <tabbar></tabbar>
   </div>
   </transition>
 </template>
@@ -55,11 +55,8 @@
   export default {
     data () {
       return {
+        selected: false,
         isTransition: 'slide-my',
-        actions: [
-          {name: '扫条形码', method: 'xixixi'}
-        ],
-        actionsVisible: false,
         mainButton: [
           {title: '借阅书籍', url: '/my/rent', iconfont: '#icon-rent'},
           {title: '过期书籍', url: '/my/outdate', iconfont: '#icon-out-date'},
@@ -68,19 +65,28 @@
         ],
         otherButton: [
           {title: '积分排行', url: 'point/rank', iconfont: '#icon-rank'}
-        ],
-        visible: false,
-        popup: [
-          {visible: false},
-          {visible: false}
         ]
       }
     },
+    methods: {
+      choose: function (index) {
+        this.selected = index
+      }
+    },
     beforeRouteEnter (to, from, next) {
-      if (from.path === '/home') {
+      let fromPath = from.path
+      if (fromPath === '/home' || fromPath === '/store' || fromPath === '/category') {
         next(vm => {
           vm.$el.className = 'dashboard'
         })
+      }
+
+      next()
+    },
+    beforeRouteLeave (to, from, next) {
+      let toPath = to.path
+      if (toPath === '/home' || toPath === '/store' || toPath === '/category') {
+        this.$el.style.display = 'none'
       }
 
       next()
@@ -90,6 +96,9 @@
 </script>
 
 <style>
+  .red-test {
+    color: red;
+  }
   .dashboard {
     width: 100%;
     min-height: 100%;
@@ -116,6 +125,7 @@
   .info .info-detail {
   	font-size: 14px;
   	color: white;
+    padding-top: .5em;
   	text-align: center;
   }
   .info span {
@@ -130,6 +140,7 @@
   }
   .info .info-intro {
 	max-width: 50%;
+  color: white;
 	display: inline-block;
   }
   .info-detail div {
@@ -169,6 +180,9 @@
   .other-button{
   	margin-top: .8em;
   }
+  .button-sise {
+    margin-bottom: 5em;
+  }
   .button-sise ul {
   	background: white;
   	font-size: 14px;
@@ -193,9 +207,6 @@
   }
   .slide-my-leave-active {
     width: 100%;
-    position: fixed;
-    top: 0;
-    right: 0;
     z-index: -999;
     animation: myLeave .2s linear;
   }
