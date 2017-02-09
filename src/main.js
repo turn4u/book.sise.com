@@ -6,6 +6,7 @@ import Home from './components/Home'
 import My from './components/My'
 import Rent from './components/Rent'
 import Store from './components/Store'
+import List from './components/List'
 import Category from './components/Category'
 import OutDate from './components/OutDate'
 import Account from './components/Account'
@@ -45,6 +46,9 @@ const routes = [{
 }, {
   path: '/category',
   component: Category
+}, {
+  path: '/category/list',
+  component: List
 }]
 
 const router = new VueRouter({ routes })
